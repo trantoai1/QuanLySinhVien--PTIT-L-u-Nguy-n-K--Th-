@@ -1,0 +1,49 @@
+# Project: QuanLySinhVien
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o console/console.o io/FILE/file.o io/md5.o student.o io/ionew.o menu/menu.o user.o
+LINKOBJ  = main.o console/console.o io/FILE/file.o io/md5.o student.o io/ionew.o menu/menu.o user.o
+LIBS     = -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = QuanLySinhVien.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+console/console.o: console/console.cpp
+	$(CPP) -c console/console.cpp -o console/console.o $(CXXFLAGS)
+
+io/FILE/file.o: io/FILE/file.cpp
+	$(CPP) -c io/FILE/file.cpp -o io/FILE/file.o $(CXXFLAGS)
+
+io/md5.o: io/md5.cpp
+	$(CPP) -c io/md5.cpp -o io/md5.o $(CXXFLAGS)
+
+student.o: student.cpp
+	$(CPP) -c student.cpp -o student.o $(CXXFLAGS)
+
+io/ionew.o: io/ionew.cpp
+	$(CPP) -c io/ionew.cpp -o io/ionew.o $(CXXFLAGS)
+
+menu/menu.o: menu/menu.cpp
+	$(CPP) -c menu/menu.cpp -o menu/menu.o $(CXXFLAGS)
+
+user.o: user.cpp
+	$(CPP) -c user.cpp -o user.o $(CXXFLAGS)
